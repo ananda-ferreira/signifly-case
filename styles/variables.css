@@ -1,0 +1,96 @@
+/* Custom Font Example
+@font-face {
+  font-family: 'Apoc Revelations';
+  font-weight: 100;
+  src: url(/fonts/ApocRevelations-Hairline.woff2) format("woff2");
+} */
+
+:root {
+  /*bg colors*/
+  --bg-hsl: 0, 0%, 94%; /*dark white*/
+  --dark-bg-hsl: 0, 0%, 8%; /*dark grey*/
+  --btn-bg-hsl:  0, 0%, 8%;
+  --acc-hsl: 119deg, 100%, 50%;
+
+  /*font colors*/
+  --h1-hsl: 0deg, 0%, 60%; /*light grey*/
+  --h2-hsl: 0deg, 0%, 60%; /*light grey*/
+  --p-hsl: 0deg, 0%, 16%; /*dark grey*/
+  --s-hsl: 0deg, 0%, 0%; /*black*/
+  --btn-hsl: 0, 0%, 99%; 
+
+  /*font*/
+  --main-font: 'Arial Narrow', Arial, sans-serif;
+  --sec-font: 'Helvetica';
+  --font-size: 8px; /*12, 6.4*/
+  --h1: 5.2rem;
+  --p: 1.4rem; 
+  --s: 1.2rem;
+  --h1-line-height: 4.8rem;
+  --p-line-height: 2rem;
+  --s-line-height: 1.2rem;
+
+  /*margins and paddings*/
+  --top-mar: 0.8rem;
+  --top-full-mar: calc(var(--top-mar) + var(--pad));
+  --side-mar: 1rem;
+  --side-full-mar: calc(var(--side-mar) + var(--pad));
+  --big-mar: 15.2rem;
+  --pad: 0.6rem;
+  --big-pad: 12.5%;
+  --gut: 1rem;
+
+  /*animations*/
+  --trans-dur: 0.25s;
+  --animation-dur: calc(var(--trans-dur) * 2);
+
+  /*z-index*/
+  --nav-z: 100;
+  --nav-gallery: 10;
+  --index-z: 9;
+}
+
+/**
+* tablet responsive
+*/
+
+@media only screen and (min-width: 768px)  {
+
+  :root {
+    --h1: 8.2rem;
+    --h1-line-height: 7.2rem;
+    /* --h1: 6.6rem;
+    --h1-line-height: 5.6rem; */
+  }
+
+
+}
+
+/**
+* desktop responsive
+*/
+
+@media only screen and (min-width: 992px) {
+  
+  :root {
+    --h1: 8.2rem;
+    --h1-line-height: 7.2rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /*bg colors*/
+    --bg-hsl: 0, 0%, 94%; /*dark white*/
+    --dark-bg-hsl: 0, 0%, 8%; /*dark grey*/
+    --btn-bg-hsl:  0, 0%, 8%;
+    --acc-hsl: 119deg, 100%, 50%;
+
+    /*font colors*/
+    --h1-hsl: 0deg, 0%, 60%; /*light grey*/
+    --h2-hsl: 0deg, 0%, 60%; /*light grey*/
+    --p-hsl: 0deg, 0%, 16%; /*dark grey*/
+    --s-hsl: 0deg, 0%, 0%; /*black*/
+    --btn-hsl: 0, 0%, 99%; 
+  }
+}
