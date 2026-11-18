@@ -1,12 +1,18 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import LeaderBoard from "@/components/LeaderBoard";
+import ScoreBoard from "@/components/ScoreBoard";
+import { TEAMS, MATCHES, MEMBERS } from "@/lib/data";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        
+      <main id="home">
+        <div className="boardwrapper">
+          <ScoreBoard teams={TEAMS} matches={MATCHES} members={MEMBERS} />
+          <LeaderBoard standings={null}/>
+          {/* <ToggleLeaderBoardBtn /> */}
+        </div>
+        <div className="adminbtn">
+
+        </div>
       </main>
-    </div>
-  );
+  )
 }

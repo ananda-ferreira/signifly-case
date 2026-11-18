@@ -1,0 +1,33 @@
+#leaderboard {
+    background-color: rgb(194, 193, 193);
+    width: 100%;
+    height: auto;
+}
+
+
+/**
+* desktop responsive
+*/
+
+@media only screen and (min-width: 768px)  {
+
+}
+
+/**
+* desktop responsive
+*/
+
+@media only screen and (min-width: 992px) {
+
+    #leaderboard {
+        width: calc(var(--gapless-fullwidth) * 3/12);
+    }
+
+}
+
+
+/* @media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+} */

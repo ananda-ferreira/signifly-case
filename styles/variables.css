@@ -36,9 +36,10 @@
   --side-mar: 1rem;
   --side-full-mar: calc(var(--side-mar) + var(--pad));
   --big-mar: 15.2rem;
-  --pad: 0.6rem;
+  --pad: 2rem;
   --big-pad: 12.5%;
-  --gut: 1rem;
+  --gap: 1rem;
+  --gapless-fullwidth: calc(100% - 11*var(--gap));
 
   /*animations*/
   --trans-dur: 0.25s;
