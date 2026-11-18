@@ -8,7 +8,6 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "Signifly Foosball",
   description: "Checkout the latest scores",
@@ -16,8 +15,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={inter.className}>
+      <body>
+        <header>
+          <h1>Signifly Foosball - Championship</h1>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
