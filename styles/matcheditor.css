@@ -1,6 +1,6 @@
 #matcheditor {
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: var(--pad);
 }
 
@@ -41,4 +41,50 @@
 
 #matcheditor form button {
     width: calc((var(--padless-fullwidth) - var(--gap)) * 3/12 - 2*var(--pad));
+}
+
+/**
+* desktop responsive
+*/
+
+@media only screen and (max-width: 768px)  {
+
+    #matcheditor {
+        width: var(--padless-fullwidth);
+    }
+
+    #matcheditor form {
+        display: block;
+    }
+
+    #matcheditor .inputbar {
+        width: 100%;
+        border-radius: unset;
+        background-color: var(--ui-bg-darker-hex);
+    }
+
+    #matcheditor form label {
+    width: inherit;
+}
+    
+    #matcheditor form button {
+        /* width: var(--padless-fullwidth); */
+        width: calc(100% - 2*var(--pad));
+    }
+}
+
+/**
+* desktop responsive
+*/
+
+@media only screen and (min-width: 992px) {
+
+    #leaderboard {
+        width: calc((var(--padless-fullwidth) - var(--gap)) * 3/12);
+        margin-bottom: 0;
+    }
+    #leaderboard table {
+      margin: 0.8rem 0;
+    }
+
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import LeaderBoard from "@/components/LeaderBoard";
 import MatchEditor from "@/components/MatchEditor";
 import ScoreBoard from "@/components/ScoreBoard";
@@ -19,9 +19,7 @@ export default function Home() {
           <LeaderBoard standings={standings} teams={TEAMS}/>
         </div>
         {isEditMode && (
-          <div>
             <MatchEditor teams={TEAMS} />
-          </div>
         )}
       </main>
   );

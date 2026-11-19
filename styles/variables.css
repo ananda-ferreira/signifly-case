@@ -1,16 +1,8 @@
-/* Custom Font Example
-@font-face {
-  font-family: 'Apoc Revelations';
-  font-weight: 100;
-  src: url(/fonts/ApocRevelations-Hairline.woff2) format("woff2");
-} */
-
 :root {
   /*bg colors*/
   --ui-bg-hex: #F0F0F0; /*dark white*/
-  --dark-bg-hsl: 0, 0%, 8%; /*dark grey*/
+  --ui-bg-darker-hex: #e0e0e0; /*dark white*/
   --btn-bg-hsl:  0, 0%, 8%;
-  --acc-hsl: 119deg, 100%, 50%;
 
   /*font colors*/
   --h1-hsl: 0deg, 0%, 60%; /*light grey*/
