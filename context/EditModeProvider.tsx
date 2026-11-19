@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState } from 'react';
 import { Match, Team } from '@/lib/types';
+import { MATCHES } from '@/lib/data';
 
 interface EditModeContextType {
   isEditMode: boolean;
@@ -9,6 +10,8 @@ interface EditModeContextType {
   selectedMatch: Match | null;
   selectedRowTeam: Team | null;
   selectedColTeam: Team | null;
+  matches: Match[];
+  setMatches: (matches: Match[]) => void;
   setSelectedCell: (match: Match | null, rowTeam: Team | null, colTeam: Team | null) => void;
 }
 
@@ -19,6 +22,7 @@ export function EditModeProvider({ children }: { children: React.ReactNode }) {
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
   const [selectedRowTeam, setSelectedRowTeam] = useState<Team | null>(null);
   const [selectedColTeam, setSelectedColTeam] = useState<Team | null>(null);
+  const [matches, setMatches] = useState<Match[]>(MATCHES);
   
   const setSelectedCell = (match: Match | null, rowTeam: Team | null, colTeam: Team | null) => {
     setSelectedMatch(match);
@@ -35,6 +39,8 @@ export function EditModeProvider({ children }: { children: React.ReactNode }) {
       selectedMatch, 
       selectedRowTeam, 
       selectedColTeam,
+      matches,
+      setMatches,
       setSelectedCell 
     }}>
       {children}

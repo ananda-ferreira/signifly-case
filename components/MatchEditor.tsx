@@ -11,7 +11,7 @@ interface MatchEditorProps {
 }
 
 export default function MatchEditor({ teams }: MatchEditorProps) {
-  const { selectedMatch, selectedRowTeam, selectedColTeam } = useEditMode();
+  const { selectedMatch, selectedRowTeam, selectedColTeam, matches, setMatches } = useEditMode();
   const [scoreOne, setScoreOne] = useState(0)
   const [scoreTwo, setScoreTwo] = useState(0)
 
@@ -33,11 +33,34 @@ export default function MatchEditor({ teams }: MatchEditorProps) {
     ? teams.find(t => t.id === selectedMatch.teamTwoId)?.name || selectedMatch.teamTwoId
     : selectedColTeam?.name || "Team 2";
 
+  const handleSave = () => {
+    let newMatches = [...matches];
+    
+    if (selectedMatch) {
+      // Update existing match
+      newMatches = newMatches.map(m => 
+        m.id === selectedMatch.id ? { ...m, scoreOne, scoreTwo } : m
+      );
+    } else if (selectedRowTeam && selectedColTeam) {
+      // Create new match
+      const newMatch: Match = {
+        id: `m-${Date.now()}`,
+        teamOneId: selectedRowTeam.id,
+        teamTwoId: selectedColTeam.id,
+        scoreOne,
+        scoreTwo
+      };
+      newMatches = [...newMatches, newMatch];
+    }
+    
+    setMatches(newMatches);
+  };
+
   return (
     <div id="matcheditor">
       <form onSubmit={(e) => {
         e.preventDefault();
-        console.log("Save:", { scoreOne, scoreTwo });
+        handleSave();
       }}>
         <div className="inputbar">
             <label>
@@ -64,7 +87,9 @@ export default function MatchEditor({ teams }: MatchEditorProps) {
                 <p>{teamTwoLabel}</p>
             </label>
         </div>
-        <BlackButton buttonType="submit">Save</BlackButton>
+        <BlackButton buttonType="submit" disabled={!selectedMatch && !selectedRowTeam}>
+          Save
+        </BlackButton>
       </form>
     </div>
   )

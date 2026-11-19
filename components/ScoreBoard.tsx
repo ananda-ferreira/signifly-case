@@ -6,14 +6,14 @@ import { useEditMode } from "../context/EditModeProvider";
 
 interface BoardProps {
     teams: Team[],
-    matches: Match[],
     members: Member[],
 }
 
-export default function ScoreBoard({teams, matches, members}: BoardProps) {
+export default function ScoreBoard({teams, members}: BoardProps) {
+    const { matches, isEditMode, selectedMatch, selectedRowTeam, selectedColTeam, setSelectedCell } = useEditMode();
+    
     if (teams.length === 0) return <p>No teams yet. Set up the tournament in admin mode.</p>
     
-    const { isEditMode, selectedMatch, selectedRowTeam, selectedColTeam, setSelectedCell } = useEditMode();
     const cellWidth = `calc((100% - ${teams?.length - 1}*var(--gap))/${teams?.length})`
 
     const handleCellClick = (match: Match | null, rowTeam: Team, colTeam: Team) => {
