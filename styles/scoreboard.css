@@ -32,6 +32,11 @@
         margin: 0;
     }
 
+    #scoreboard table {
+      width: inherit;
+      min-width: inherit;
+    }
+
 }
 
 
