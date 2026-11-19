@@ -1,7 +1,32 @@
 #leaderboard {
-    background-color: rgb(194, 193, 193);
     width: 100%;
     height: auto;
+    margin-bottom: 8rem;
+}
+
+#leaderboard table {
+  background-color: var(--ui-bg-hex);
+  border-radius: 1rem;
+}
+
+#leaderboard tr:not(:first-child) {
+  height: 6rem;
+  margin: 1.5rem var(--gap);
+  mix-blend-mode: multiply;
+  transition: color 5s ease;
+}
+
+#leaderboard tr:first-child {
+  height: 6rem;
+  margin: 0;
+}
+#leaderboard tr:last-child {
+  margin-bottom: var(--gap);
+}
+
+#leaderboard tr > * {
+  /* padding: 0; */
+  width: calc((100% - 3*var(--gap))/4);
 }
 
 
@@ -20,7 +45,11 @@
 @media only screen and (min-width: 992px) {
 
     #leaderboard {
-        width: calc(var(--gapless-fullwidth) * 3/12);
+        width: calc(var(--gapless-fullwidth) * 4/12);
+        margin-bottom: 0;
+    }
+    #leaderboard table {
+      margin: 0.8rem 0;
     }
 
 }

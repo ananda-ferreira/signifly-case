@@ -1,30 +1,32 @@
-import { Standing } from "@/lib/types"
+import { Standing, Team } from "@/lib/types"
 import '@/styles/leaderboard.css'
 
-export default function LeaderBoard({standings}: {standings: Standing[]}) {
-  
+export default function LeaderBoard({standings, teams}: {standings: Standing[], teams: Team[]}) {
+
   return (
     <div id="leaderboard">
       <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>team</th>
-            <th>won</th>
-            <th>lost</th>
-            <th>points</th>
-          </tr>
-        </thead>
         <tbody>
-            {!standings ? <tr>
-              <td>No matches yet.</td>
-            </tr>
-            : standings.map((row) => (
-              <tr key={row.teamId}>
-
+          <tr>
+            <td className="placecol" aria-disabled />
+            <td>Team</td>
+            <td>W / L</td>
+            <td>Total Points</td>
+          </tr>
+            {standings && standings.map((row, i) => {
+              const team = teams.filter((t) => t.id === row.teamId)[0]
+              return (
+              <tr key={row.teamId} style={{backgroundColor: team.color}}>
+                <th className="placecol">{i+1}</th>
+                <td>{team.name}</td>
+                <td>
+                  <span>{row.won}</span>
+                  <span> / </span>
+                  <span>{row.lost}</span>
+                </td>
+                <td>{row.points}</td>
               </tr>
-            ))
-            }
+            )})}
         </tbody>
       </table>
     </div>

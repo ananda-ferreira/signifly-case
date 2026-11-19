@@ -9,43 +9,40 @@ interface BoardProps {
 
 export default function ScoreBoard({teams, matches, members}: BoardProps) {
 
-    console.log("teams ", teams);
-    console.log("matches ", matches);
     
     if (teams.length === 0) return <p>No teams yet. Set up the tournament in admin mode.</p>
     
+    const cellWidth = `calc((100% - ${teams?.length - 1}*var(--gap))/${teams?.length})`
     return (
         <div id="scoreboard">
             <table>
-                <thead >
+                <tbody>
                     <tr>
-                        <th>Matches</th>
+                        <td style={{width: cellWidth}} aria-disabled />
                         {teams.map((col) => (
-                            <th key={col.id}>{col.name}</th>
+                            <td style={{width: cellWidth}} key={col.id}>{col.name}</td>
                         ))}
                     </tr>
-                </thead>
-                <tbody>
                     {teams.map((row) => (
                         <tr key={row.id + "row"}>
-                            <th>
-                                <span>{row.name}</span>
-                                <span>{"\n"}</span>
-                                <span>{row.memberIds.map((idInTeam) => members.filter((m) => m.id === idInTeam)[0].name).join(", ")}</span>
-                            </th>
+                            <td style={{width: cellWidth}}>
+                                <div>{row.name}</div>
+                                <small>{row.memberIds.map((idInTeam) => members.filter((m) => m.id === idInTeam)[0].name).join(" & ")}</small>
+                            </td>
                             {teams.map((col) => {
                                 const match = matches.filter((m) => m.teamOneId === row.id && m.teamTwoId === col.id)[0]
-                                
+                                const cellColor = match ? (match.scoreOne > match.scoreTwo ? row.color : col.color) : 'transparent'
+
                                 // no match: empty diagonal cells
-                                if (row.id === col.id) return <td key={col.id} aria-disabled />
+                                if (row.id === col.id) return <td style={{width: cellWidth}} key={col.id} aria-disabled />
                                 
                                 // or match
                                 return (
-                                    <td key={col.id} >
+                                    <th key={col.id} style={{width: cellWidth, backgroundColor: cellColor}}>
                                         <span>{match?.scoreOne || ""}</span>
-                                        <span>-</span>
+                                        <span>{match ? "/" : ""}</span>
                                         <span>{match?.scoreTwo || ""}</span>
-                                    </td>
+                                    </th>
                                 )
                             })}
                         </tr>

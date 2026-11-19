@@ -7,7 +7,7 @@
 
 :root {
   /*bg colors*/
-  --bg-hsl: 0, 0%, 94%; /*dark white*/
+  --ui-bg-hex: #F0F0F0; /*dark white*/
   --dark-bg-hsl: 0, 0%, 8%; /*dark grey*/
   --btn-bg-hsl:  0, 0%, 8%;
   --acc-hsl: 119deg, 100%, 50%;
@@ -20,15 +20,16 @@
   --btn-hsl: 0, 0%, 99%; 
 
   /*font*/
-  --main-font: 'Arial Narrow', Arial, sans-serif;
-  --sec-font: 'Helvetica';
+  /* --main-font: 'Arial Narrow', Arial, sans-serif;
+  --sec-font: 'Helvetica'; */
   --font-size: 8px; /*12, 6.4*/
-  --h1: 5.2rem;
-  --p: 1.4rem; 
-  --s: 1.2rem;
+  --h1: 3rem;
+  --h2: 2.75rem;
+  --p: 1.5rem; 
+  --s: 1.125rem;
   --h1-line-height: 4.8rem;
   --p-line-height: 2rem;
-  --s-line-height: 1.2rem;
+  --s-line-height: 1rem;
 
   /*margins and paddings*/
   --top-mar: 0.8rem;
@@ -38,8 +39,8 @@
   --big-mar: 15.2rem;
   --pad: 2rem;
   --big-pad: 12.5%;
-  --gap: 1rem;
-  --gapless-fullwidth: calc(100% - 11*var(--gap));
+  --gap: 0.5rem;
+  --gapless-fullwidth: calc(100vw - 11*var(--gap) - 2*var(--pad));
 
   /*animations*/
   --trans-dur: 0.25s;
@@ -58,10 +59,7 @@
 @media only screen and (min-width: 768px)  {
 
   :root {
-    --h1: 8.2rem;
-    --h1-line-height: 7.2rem;
-    /* --h1: 6.6rem;
-    --h1-line-height: 5.6rem; */
+
   }
 
 
@@ -74,24 +72,11 @@
 @media only screen and (min-width: 992px) {
   
   :root {
-    --h1: 8.2rem;
-    --h1-line-height: 7.2rem;
-  }
-}
+    --h1: 5.265rem;
+    --h2: 3.75rem;
+    --p: 1.5rem; 
+    --s: 1.125rem;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /*bg colors*/
-    --bg-hsl: 0, 0%, 94%; /*dark white*/
-    --dark-bg-hsl: 0, 0%, 8%; /*dark grey*/
-    --btn-bg-hsl:  0, 0%, 8%;
-    --acc-hsl: 119deg, 100%, 50%;
-
-    /*font colors*/
-    --h1-hsl: 0deg, 0%, 60%; /*light grey*/
-    --h2-hsl: 0deg, 0%, 60%; /*light grey*/
-    --p-hsl: 0deg, 0%, 16%; /*dark grey*/
-    --s-hsl: 0deg, 0%, 0%; /*black*/
-    --btn-hsl: 0, 0%, 99%; 
+    --gapless-fullwidth: calc(100vw - 11*var(--gap) - 2*var(--pad));
   }
 }

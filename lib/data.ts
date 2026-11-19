@@ -2,12 +2,14 @@
 import type { Team, Match, Member } from "./types";
 
 export const TEAMS: Team[] = [
-  { id: "a", name: "red", memberIds: ["mem1", "mem2"] },
-  { id: "b", name: "blue", memberIds: ["mem3", "mem4"] },
-  { id: "c", name: "yellow", memberIds: ["mem5", "mem6"] },
-  { id: "d", name: "purple", memberIds: ["mem1", "mem1"] },
-  { id: "e", name: "orange", memberIds: ["mem1", "mem1"] },
-  { id: "f", name: "green", memberIds: ["mem1", "mem1"] },
+  { id: "a", name: "Yellow", color: "hsl(52, 100%, 75%)", memberIds: ["mem1", "mem2"] },
+  { id: "b", name: "Red", color: "hsl(0, 100%, 77%)", memberIds: ["mem3", "mem4"] },
+  { id: "c", name: "Purple", color: "hsl(272, 100%, 80%)", memberIds: ["mem5", "mem6"] },
+  { id: "d", name: "Green", color: "hsl(92, 100%, 78%)", memberIds: ["mem1", "mem1"] },
+  { id: "e", name: "Blue", color: "hsl(222, 100%, 72%)", memberIds: ["mem1", "mem1"] },
+  { id: "f", name: "Beige", color: "hsl(33, 100%, 89%)", memberIds: ["mem1", "mem1"] },
+  { id: "g", name: "Orange", color: "hsl(30, 100%, 74%)", memberIds: ["mem1", "mem1"] },
+  { id: "h", name: "Grey", color: "hsl(0, 0%, 71%)", memberIds: ["mem1", "mem1"] },
   // ... 6 more
 ];
 
@@ -29,5 +31,6 @@ export const MEMBERS: Member[] = [
 
 export const MATCHES: Match[] = [
   { id: "m1", teamOneId: "a", teamTwoId: "b", scoreOne: 10, scoreTwo: 3 },
-  { id: "m2", teamOneId: "a", teamTwoId: "c", scoreOne: 2, scoreTwo: 10 },
+  { id: "m2", teamOneId: "a", teamTwoId: "c", scoreOne: 10, scoreTwo: 5 },
+  { id: "m3", teamOneId: "b", teamTwoId: "a", scoreOne: 10, scoreTwo: 1 },
 ];

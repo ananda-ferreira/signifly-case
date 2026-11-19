@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@/styles/globals.css";
 import "@/styles/variables.css";
+import "@/styles/globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={inter.className}>
       <body>
         <header>
-          <h1>Signifly Foosball - Championship</h1>
+          <h1>Signifly Foosball Championship</h1>
         </header>
         {children}
       </body>

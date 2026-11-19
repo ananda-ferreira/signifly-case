@@ -6,7 +6,7 @@ export interface Member {
 export interface Team {
   id: string;
   name: string;
-//   color: string;        // hex; UI uses it for recognition
+  color: string;        // hex; UI uses it for recognition
   memberIds: string[];  // 1-4 members
 }
 

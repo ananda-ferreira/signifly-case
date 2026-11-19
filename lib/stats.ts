@@ -49,5 +49,7 @@ export function calculateStandings(teams: Team[], matches: Match[]): Standing[] 
     // If draw, no points are awarded and no win/loss (points could be extended for draws)
   }
 
-  return Array.from(standingsMap.values());
+  const standings = Array.from(standingsMap.values());
+  standings.sort((a, b) => b.points - a.points);
+  return standings;
 }
