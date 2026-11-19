@@ -45,7 +45,7 @@
 @media only screen and (min-width: 992px) {
 
     #leaderboard {
-        width: calc(var(--gapless-fullwidth) * 4/12);
+        width: calc((var(--padless-fullwidth) - var(--gap)) * 3/12);
         margin-bottom: 0;
     }
     #leaderboard table {

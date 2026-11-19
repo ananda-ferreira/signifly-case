@@ -22,7 +22,7 @@
 
     #scoreboard {
         width: 100%; 
-        width: calc((100% - 11*var(--gap)) * 9/12);
+        width: calc((var(--padless-fullwidth) - var(--gap)) * 9/12);
         margin: 0;
     }
 

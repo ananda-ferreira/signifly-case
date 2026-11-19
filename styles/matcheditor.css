@@ -1,0 +1,33 @@
+#matcheditor {
+    width: 100%;
+}
+
+#matcheditor form {
+    display: inline-flex;
+    gap: var(--gap);
+}
+
+#matcheditor .inputbar {
+    display: inline-flex;
+    gap: var(--gap);
+    background-color: var(--ui-bg-hex);
+    border-radius: 1rem;
+    padding: calc(var(--gap)*2);
+}
+
+#matcheditor form label {
+    width: (var(--colwidth));
+}
+
+#matcheditor form h2 {
+    width: calc(var(--colwidth)*7 + var(--gap)*6);
+    display: flex;
+    justify-content: space-around;
+}
+
+#matcheditor form h2 input {
+    width: calc(var(--colwidth)*2);
+}
+#matcheditor form button {
+    width: calc(var(--colwidth)*3 + var(--gap)*2);
+}

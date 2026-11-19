@@ -34,6 +34,11 @@ h1 {
   font-size: var(--h1);
 }
 
+h2 {
+  all: unset;
+  font-size: var(--h2);
+}
+
 p {
   font-size: var(--p);
   white-space: pre-wrap;
@@ -46,11 +51,8 @@ small {
 
 main {
   padding: var(--pad);
-  width: 100%;
-  /* height: 100%; */
+  width: 100vw;
 }
-
-
 
 table {
   width: 100%;
@@ -86,13 +88,10 @@ th {
   font-size: var(--h2);
 }
 
+
+
 /* 
 
-h2 {
-  font-size: var(--h2);
-  line-height: var(--h2-line-height);
-  text-transform: uppercase;
-}
 
 
 a {

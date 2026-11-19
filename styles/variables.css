@@ -40,7 +40,8 @@
   --pad: 2rem;
   --big-pad: 12.5%;
   --gap: 0.5rem;
-  --gapless-fullwidth: calc(100vw - 11*var(--gap) - 2*var(--pad));
+  --padless-fullwidth: calc(100vw - 2*var(--pad));
+  --colwidth: calc((var(--padless-fullwidth) - 11*var(--gap))/12);
 
   /*animations*/
   --trans-dur: 0.25s;
