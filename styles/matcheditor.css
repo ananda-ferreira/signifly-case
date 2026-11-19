@@ -1,5 +1,7 @@
 #matcheditor {
     width: 100%;
+    position: absolute;
+    bottom: var(--pad);
 }
 
 #matcheditor form {
@@ -13,21 +15,30 @@
     background-color: var(--ui-bg-hex);
     border-radius: 1rem;
     padding: calc(var(--gap)*2);
+    width: calc((var(--padless-fullwidth) - var(--gap)) * 9/12);
 }
 
 #matcheditor form label {
-    width: (var(--colwidth));
+    width: calc((var(--padless-fullwidth) - var(--gap)) * 12);
 }
 
 #matcheditor form h2 {
-    width: calc(var(--colwidth)*7 + var(--gap)*6);
+    /* width: calc(var(--colwidth)*7 + var(--gap)*6); */
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
-#matcheditor form h2 input {
-    width: calc(var(--colwidth)*2);
+#matcheditor form input {
+    all: unset;
+    width: calc(var(--colwidth)*3);
+    text-align: center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
 }
+
 #matcheditor form button {
-    width: calc(var(--colwidth)*3 + var(--gap)*2);
+    width: calc((var(--padless-fullwidth) - var(--gap)) * 3/12 - 2*var(--pad));
 }

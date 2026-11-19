@@ -1,7 +1,13 @@
+'use client'
 
+import { useState } from "react"
 import "@/styles/matcheditor.css"
+import BlackButton from "@/components/global/BlackButton"
 
 export default function MatchEditor({}) {
+  const [scoreOne, setScoreOne] = useState(0)
+  const [scoreTwo, setScoreTwo] = useState(0)
+
   return (
     <div id="matcheditor">
       <form>
@@ -10,15 +16,15 @@ export default function MatchEditor({}) {
                 <p>{"team name 1"}</p>
             </label>
             <h2>
-                <input type="number" />
+                <input type="number" min="0" max="10" value={scoreOne} onChange={(e) => setScoreOne(Number(e.target.value))} />
                 <span>/</span>
-                <input type="number" />
+                <input type="number" min="0" max="10" value={scoreTwo} onChange={(e) => setScoreTwo(Number(e.target.value))} />
             </h2>
             <label>
                 <p>{"team name 1"}</p>
             </label>
         </div>
-        <button type="submit">Save</button>
+        <BlackButton>Save</BlackButton>
       </form>
     </div>
   )
