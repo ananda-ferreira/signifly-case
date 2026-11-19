@@ -8,6 +8,7 @@ interface ButtonProps {
   disabled?: boolean;
   style?: React.CSSProperties;
   cName?: string;
+  buttonType?: "button" | "submit" | "reset";
 }
 
 export default function BlackButton({ 
@@ -15,10 +16,12 @@ export default function BlackButton({
   handleOnClick, 
   disabled, 
   style, 
-  cName 
+  cName,
+  buttonType
 }: ButtonProps) {
   return (
     <button
+      type={buttonType || "button"}
       className={`blackbutton ${cName || ''}`}
       onClick={handleOnClick}
       style={style}

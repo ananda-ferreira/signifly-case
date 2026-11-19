@@ -10,7 +10,10 @@ export default function MatchEditor({}) {
 
   return (
     <div id="matcheditor">
-      <form>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        console.log("Save:", { scoreOne, scoreTwo });
+      }}>
         <div className="inputbar">
             <label>
                 <p>{"team name 1"}</p>
@@ -24,7 +27,7 @@ export default function MatchEditor({}) {
                 <p>{"team name 1"}</p>
             </label>
         </div>
-        <BlackButton>Save</BlackButton>
+        <BlackButton buttonType="submit">Save</BlackButton>
       </form>
     </div>
   )

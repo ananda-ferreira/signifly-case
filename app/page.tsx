@@ -1,11 +1,15 @@
+'use client';
+
 import LeaderBoard from "@/components/LeaderBoard";
+import MatchEditor from "@/components/MatchEditor";
 import ScoreBoard from "@/components/ScoreBoard";
 import { TEAMS, MATCHES, MEMBERS } from "@/lib/data";
 import { calculateStandings } from "@/lib/stats";
+import { useEditMode } from "@/components/EditModeProvider";
 
 export default function Home() {
-
-  const standings = calculateStandings(TEAMS, MATCHES)
+  const { isEditMode } = useEditMode();
+  const standings = calculateStandings(TEAMS, MATCHES);
 
   return (
       <main id="home">
@@ -13,6 +17,11 @@ export default function Home() {
           <ScoreBoard teams={TEAMS} matches={MATCHES} members={MEMBERS} />
           <LeaderBoard standings={standings} teams={TEAMS}/>
         </div>
+        {isEditMode && (
+          <div>
+            <MatchEditor />
+          </div>
+        )}
       </main>
-  )
+  );
 }
