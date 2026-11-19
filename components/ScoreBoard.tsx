@@ -40,30 +40,31 @@ export default function ScoreBoard({teams, matches, members}: BoardProps) {
                             {teams.map((col) => {
                                 const match = matches.filter((m) => m.teamOneId === row.id && m.teamTwoId === col.id)[0]
                                 
-                                // dynamic styling 
-                                const winColor = match ? (match.scoreOne > match.scoreTwo ? row.color : col.color) : 'transparent'
-                                const cellColor = isEditMode ? 'transparent' : winColor
-                                
                                 // Check if this cell is selected (existing match or new match)
                                 const isSelected = isEditMode && 
                                     ((match && selectedMatch && selectedMatch.id === match.id) || 
                                      (!match && selectedRowTeam?.id === row.id && selectedColTeam?.id === col.id));
+                                
+                                // dynamic styling 
+                                const winColor = match ? (match.scoreOne > match.scoreTwo ? row.color : col.color) : 'transparent'
+                                const cellColor = isEditMode ? 'transparent' : winColor
                                 const cellBorder = isSelected ? 'solid 2px' : 'none';
                                 const cellBorderColor = isSelected ? 'black' : 'transparent';
-
+                                
                                 // no match: empty diagonal cells
                                 if (row.id === col.id) return <td style={{width: cellWidth}} key={col.id} aria-disabled />
                                 
-                                // or match
+                                // match exists, show scores
                                 return (
                                     <th 
                                       key={col.id} 
                                       style={{
                                         width: cellWidth, 
+                                        // boxSizing: 'border-box',
                                         backgroundColor: cellColor, 
                                         border: cellBorder,
                                         borderColor: cellBorderColor,
-                                        transition: 'background-color 0.2s, border-color 0.5s', 
+                                        transition: 'background-color 0.2s, border-color 0.3s', 
                                         cursor: isEditMode ? 'pointer' : 'default'
                                         }}
                                       onClick={() => handleCellClick(match, row, col)}

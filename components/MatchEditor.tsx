@@ -44,9 +44,21 @@ export default function MatchEditor({ teams }: MatchEditorProps) {
                 <p>{teamOneLabel}</p>
             </label>
             <h2>
-                <input type="number" min="0" max="10" value={scoreOne} onChange={(e) => setScoreOne(Number(e.target.value))} />
+                <input 
+                  type="number" 
+                  min="0" 
+                  max="10" 
+                  value={scoreOne} 
+                  onChange={(e) => setScoreOne(Number(e.target.value))} 
+                  disabled={!selectedMatch && !selectedRowTeam} />
                 <span>/</span>
-                <input type="number" min="0" max="10" value={scoreTwo} onChange={(e) => setScoreTwo(Number(e.target.value))} />
+                <input 
+                  type="number" 
+                  min="0" 
+                  max="10" 
+                  value={scoreTwo} 
+                  onChange={(e) => setScoreTwo(Number(e.target.value))} 
+                  disabled={!selectedMatch && !selectedRowTeam} />
             </h2>
             <label>
                 <p>{teamTwoLabel}</p>
