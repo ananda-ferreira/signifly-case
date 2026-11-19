@@ -1,5 +1,6 @@
 import { Standing, Team } from "@/lib/types"
 import '@/styles/leaderboard.css'
+import { motion } from 'framer-motion';
 
 export default function LeaderBoard({standings, teams}: {standings: Standing[], teams: Team[]}) {
 
@@ -16,7 +17,16 @@ export default function LeaderBoard({standings, teams}: {standings: Standing[], 
             {standings && standings.map((row, i) => {
               const team = teams.filter((t) => t.id === row.teamId)[0]
               return (
-              <tr key={row.teamId} style={{backgroundColor: team.color}}>
+              <motion.tr 
+                key={row.teamId} 
+                style={{backgroundColor: team.color}}
+                layout
+                transition={{
+                  type: "spring",
+                  damping: 25,
+                  stiffness: 150
+                }}
+              >
                 <th className="placecol">{i+1}</th>
                 <td>{team.name}</td>
                 <td>
@@ -25,7 +35,7 @@ export default function LeaderBoard({standings, teams}: {standings: Standing[], 
                   <span>{row.lost}</span>
                 </td>
                 <td>{row.points}</td>
-              </tr>
+              </motion.tr>
             )})}
         </tbody>
       </table>
