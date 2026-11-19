@@ -30,7 +30,15 @@ export function EditModeProvider({ children }: { children: React.ReactNode }) {
     setSelectedColTeam(colTeam);
   };
   
-  const toggleEditMode = () => setIsEditMode(prev => !prev);
+  const toggleEditMode = () => {
+    if (isEditMode) {
+      // Exiting edit mode - reset selection
+      setSelectedMatch(null);
+      setSelectedRowTeam(null);
+      setSelectedColTeam(null);
+    }
+    setIsEditMode(prev => !prev);
+  };
 
   return (
     <EditModeContext.Provider value={{ 
