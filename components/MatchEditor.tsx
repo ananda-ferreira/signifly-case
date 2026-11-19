@@ -88,7 +88,7 @@ export default function MatchEditor({ teams }: MatchEditorProps) {
             </label>
         </div>
         <BlackButton buttonType="submit" disabled={!selectedMatch && !selectedRowTeam}>
-          Save
+          {!selectedMatch && !selectedRowTeam ? "Select Match" : "Save"}
         </BlackButton>
       </form>
     </div>

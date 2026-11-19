@@ -12,8 +12,6 @@
 #leaderboard tr:not(:first-child) {
   height: 6rem;
   margin: 1.5rem var(--gap);
-  mix-blend-mode: multiply;
-  transition: color 5s ease;
 }
 
 #leaderboard tr:first-child {

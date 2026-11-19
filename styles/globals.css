@@ -76,7 +76,6 @@ tr > * {
   border-radius: 1rem;
   padding: var(--gap);
   text-align: unset;
-  mix-blend-mode: multiply;
 }
 
 td {

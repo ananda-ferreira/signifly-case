@@ -10,7 +10,7 @@ export default function Header() {
     <header>
       <h1>Signifly Foosball Championship</h1>
       <BlackButton handleOnClick={toggleEditMode}>
-        {isEditMode ? "Exit Edit Mode" : "Admin Mode"}
+        {isEditMode ? "Exit Admin Mode" : "Admin Mode"}
       </BlackButton>
     </header>
   );
