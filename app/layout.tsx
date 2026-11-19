@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "@/styles/variables.css";
 import "@/styles/globals.css";
 import Header from "@/components/Header";
-import { EditModeProvider } from "@/components/EditModeProvider";
+import { EditModeProvider } from "@/context/EditModeProvider";
 
 const inter = Inter({
   variable: "--font-inter",

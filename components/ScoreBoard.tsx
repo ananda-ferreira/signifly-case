@@ -1,5 +1,8 @@
+'use client';
+
 import { Team, Match, Member } from "@/lib/types";
 import '@/styles/scoreboard.css'
+import { useEditMode } from "../context/EditModeProvider";
 
 interface BoardProps {
     teams: Team[],
@@ -8,11 +11,16 @@ interface BoardProps {
 }
 
 export default function ScoreBoard({teams, matches, members}: BoardProps) {
-
-    
     if (teams.length === 0) return <p>No teams yet. Set up the tournament in admin mode.</p>
     
+    const { isEditMode, selectedMatch, selectedRowTeam, selectedColTeam, setSelectedCell } = useEditMode();
     const cellWidth = `calc((100% - ${teams?.length - 1}*var(--gap))/${teams?.length})`
+
+    const handleCellClick = (match: Match | null, rowTeam: Team, colTeam: Team) => {
+      if (!isEditMode) return;
+      setSelectedCell(match, rowTeam, colTeam);
+    };
+    
     return (
         <div id="scoreboard">
             <table>
@@ -31,14 +39,35 @@ export default function ScoreBoard({teams, matches, members}: BoardProps) {
                             </td>
                             {teams.map((col) => {
                                 const match = matches.filter((m) => m.teamOneId === row.id && m.teamTwoId === col.id)[0]
-                                const cellColor = match ? (match.scoreOne > match.scoreTwo ? row.color : col.color) : 'transparent'
+                                
+                                // dynamic styling 
+                                const winColor = match ? (match.scoreOne > match.scoreTwo ? row.color : col.color) : 'transparent'
+                                const cellColor = isEditMode ? 'transparent' : winColor
+                                
+                                // Check if this cell is selected (existing match or new match)
+                                const isSelected = isEditMode && 
+                                    ((match && selectedMatch && selectedMatch.id === match.id) || 
+                                     (!match && selectedRowTeam?.id === row.id && selectedColTeam?.id === col.id));
+                                const cellBorder = isSelected ? 'solid 2px' : 'none';
+                                const cellBorderColor = isSelected ? 'black' : 'transparent';
 
                                 // no match: empty diagonal cells
                                 if (row.id === col.id) return <td style={{width: cellWidth}} key={col.id} aria-disabled />
                                 
                                 // or match
                                 return (
-                                    <th key={col.id} style={{width: cellWidth, backgroundColor: cellColor}}>
+                                    <th 
+                                      key={col.id} 
+                                      style={{
+                                        width: cellWidth, 
+                                        backgroundColor: cellColor, 
+                                        border: cellBorder,
+                                        borderColor: cellBorderColor,
+                                        transition: 'background-color 0.2s, border-color 0.5s', 
+                                        cursor: isEditMode ? 'pointer' : 'default'
+                                        }}
+                                      onClick={() => handleCellClick(match, row, col)}
+                                    >
                                         <span>{match?.scoreOne || ""}</span>
                                         <span>{match ? "/" : ""}</span>
                                         <span>{match?.scoreTwo || ""}</span>

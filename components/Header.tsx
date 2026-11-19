@@ -1,7 +1,7 @@
 'use client';
 
 import BlackButton from "./global/BlackButton";
-import { useEditMode } from "./EditModeProvider";
+import { useEditMode } from "../context/EditModeProvider";
 
 export default function Header() {
   const { isEditMode, toggleEditMode } = useEditMode();

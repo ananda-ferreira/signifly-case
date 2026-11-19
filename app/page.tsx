@@ -5,7 +5,7 @@ import MatchEditor from "@/components/MatchEditor";
 import ScoreBoard from "@/components/ScoreBoard";
 import { TEAMS, MATCHES, MEMBERS } from "@/lib/data";
 import { calculateStandings } from "@/lib/stats";
-import { useEditMode } from "@/components/EditModeProvider";
+import { useEditMode } from "@/context/EditModeProvider";
 
 export default function Home() {
   const { isEditMode } = useEditMode();
@@ -19,7 +19,7 @@ export default function Home() {
         </div>
         {isEditMode && (
           <div>
-            <MatchEditor />
+            <MatchEditor teams={TEAMS} />
           </div>
         )}
       </main>
