@@ -52,7 +52,7 @@ export default function ScoreBoard({teams, members}: BoardProps) {
                                 const cellBorderColor = isSelected ? 'black' : 'transparent';
                                 
                                 // no match: empty diagonal cells
-                                if (row.id === col.id) return <td style={{width: cellWidth}} key={col.id} aria-disabled />
+                                if (row.id === col.id) return <td style={{width: cellWidth}} key={col.id} aria-disabled>•</td>
                                 
                                 // match exists, show scores
                                 return (
