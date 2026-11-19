@@ -12,10 +12,6 @@ export default function Home() {
         <div className="boardwrapper">
           <ScoreBoard teams={TEAMS} matches={MATCHES} members={MEMBERS} />
           <LeaderBoard standings={standings} teams={TEAMS}/>
-          {/* <ToggleLeaderBoardBtn /> */}
-        </div>
-        <div className="adminbtn">
-
         </div>
       </main>
   )

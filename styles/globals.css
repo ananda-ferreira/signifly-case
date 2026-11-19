@@ -25,6 +25,8 @@ body{
 
 header {
   padding: var(--pad);
+  display: flex;
+  justify-content: space-between;
 }
 
 h1 {

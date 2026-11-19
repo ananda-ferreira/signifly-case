@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/variables.css";
 import "@/styles/globals.css";
+import BlackButton from "@/components/global/BlackButton";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <header>
           <h1>Signifly Foosball Championship</h1>
+          <BlackButton>Admin Mode</BlackButton>
         </header>
         {children}
       </body>

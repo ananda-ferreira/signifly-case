@@ -1,0 +1,10 @@
+.blackbutton {
+    all: unset;
+    background-color: black;
+    color: white;
+    padding: var(--pad);
+    text-align: center;
+    /* border-radius: 1rem; */
+    cursor: pointer;
+
+}

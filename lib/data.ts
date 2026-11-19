@@ -10,15 +10,7 @@ export const TEAMS: Team[] = [
   { id: "f", name: "Beige", color: "hsl(33, 100%, 89%)", memberIds: ["mem1", "mem1"] },
   { id: "g", name: "Orange", color: "hsl(30, 100%, 74%)", memberIds: ["mem1", "mem1"] },
   { id: "h", name: "Grey", color: "hsl(0, 0%, 71%)", memberIds: ["mem1", "mem1"] },
-  // ... 6 more
 ];
-
-
-// export const MEMBERS: Record<string, string> = {
-//   a1: "Paulina", a2: "Jonas",
-//   b1: "Camille", b2: "Martina",
-//   c1: "Jane", c2: "Julius",
-// };
 
 export const MEMBERS: Member[] = [
   { id: "mem1", name: "Paulina"},
