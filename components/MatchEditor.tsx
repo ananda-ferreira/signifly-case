@@ -33,8 +33,11 @@ export default function MatchEditor({ teams }: MatchEditorProps) {
     ? teams.find(t => t.id === selectedMatch.teamTwoId)?.name || selectedMatch.teamTwoId
     : selectedColTeam?.name || "Team 2";
 
+  const { setSelectedCell } = useEditMode();
+
   const handleSave = () => {
     let newMatches = [...matches];
+    let newSelectedMatch: Match | null = selectedMatch;
     
     if (selectedMatch) {
       // Update existing match
@@ -51,9 +54,15 @@ export default function MatchEditor({ teams }: MatchEditorProps) {
         scoreTwo
       };
       newMatches = [...newMatches, newMatch];
+      newSelectedMatch = newMatch; // Keep the new match selected
     }
     
     setMatches(newMatches);
+    
+    // Update selected cell if we created a new match
+    if (newSelectedMatch && !selectedMatch) {
+      setSelectedCell(newSelectedMatch, selectedRowTeam, selectedColTeam);
+    }
   };
 
   return (

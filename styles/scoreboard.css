@@ -1,9 +1,15 @@
 #scoreboard {
     /* background-color: lightgrey; */
-    width: 200%;
+    width: 100%;
     height: auto;
-    overflow-x: scroll;
+    overflow-x: auto;
     margin-bottom: 8rem;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+#scoreboard table {
+  width: 100%;
+  min-width: 200%;
 }
 
 /**
