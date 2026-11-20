@@ -70,7 +70,8 @@ signifly/
 - Matches data (with update functionality)
 
 **Components**:
-- ScoreBoard: Displays matches, highlights selected cells
+- ScoreBoard: Displays matches
+- MatchCell:  Interactive cells of scoreboard
 - LeaderBoard: Shows standings with smooth animations
 - MatchEditor: Edits scores, creates new matches
 - Header: Admin mode toggle button
