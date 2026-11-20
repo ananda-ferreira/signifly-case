@@ -11,15 +11,26 @@ interface MatchEditorProps {
 }
 
 export default function MatchEditor({ teams }: MatchEditorProps) {
-  const { selectedMatch, selectedRowTeam, selectedColTeam, matches, setMatches } = useEditMode();
+  const {
+    isEditMode,
+    selectedMatch,
+    selectedRowTeam,
+    selectedColTeam,
+    matches,
+    setMatches,
+    setSelectedCell
+  } = useEditMode();
+
   const [scoreOne, setScoreOne] = useState(0)
   const [scoreTwo, setScoreTwo] = useState(0)
+
 
   useEffect(() => {
     if (selectedMatch) {
       setScoreOne(selectedMatch.scoreOne);
       setScoreTwo(selectedMatch.scoreTwo);
     } else {
+      // 
       setScoreOne(0);
       setScoreTwo(0);
     }
@@ -33,8 +44,7 @@ export default function MatchEditor({ teams }: MatchEditorProps) {
     ? teams.find(t => t.id === selectedMatch.teamTwoId)?.name || selectedMatch.teamTwoId
     : selectedColTeam?.name || "Team 2";
 
-  const { setSelectedCell } = useEditMode();
-
+  // on Save click update existing match or add new match 
   const handleSave = () => {
     let newMatches = [...matches];
     let newSelectedMatch: Match | null = selectedMatch;
@@ -65,10 +75,12 @@ export default function MatchEditor({ teams }: MatchEditorProps) {
     }
   };
 
+  if (!isEditMode) return null;
+
   return (
     <div id="matcheditor">
       <form onSubmit={(e) => {
-        e.preventDefault();
+        e.preventDefault(); // prevent page reload
         handleSave();
       }}>
         <div className="inputbar">
