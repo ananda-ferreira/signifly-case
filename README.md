@@ -35,8 +35,9 @@ signifly/
 │   ├── layout.tsx          # Root layout with header
 │   ├── page.tsx            # Main page with boards
 ├── components/
-│   ├── Header.tsx          # Includes Toggle button
+│   ├── Header.tsx          # Includes Admin button
 │   ├── ScoreBoard.tsx      # Match table
+│   ├── MatchCell.tsx       # Interactive match cells of Scoreboard
 │   ├── LeaderBoard.tsx     # Standings table
 │   ├── MatchEditor.tsx     # Edit UI
 │   └── global/
